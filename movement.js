@@ -8,7 +8,7 @@ let playerPositionOnBoard = 0;
 // La funcion movimiento genera cada movimiendo, desde el aumento del rolldice
 // hasta la verificacion del movimiento si cae en una ladder o snake llamando a la clase laddersAndSnakes
 function makeMovement(table) {
-  while (finalPosition < table.length) {
+  while (playerPositionOnBoard < table.length) {
     let result = rollDice();
     console.log(`Dado arroja ${result}`);
     finalPosition = initialPosition + result;
