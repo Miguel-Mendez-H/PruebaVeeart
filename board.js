@@ -1,4 +1,3 @@
-
 // Se crean objetos para las ladders y snakes con el fin de que se puedan aumentar de ser necesario
 let ladders = {
   3: 8,
@@ -16,13 +15,22 @@ let snakes = {
 
 let playerPosition = 0;
 
+// Genero el tablero de acuerdo a un size establecido por el usuario
+function delimitTable(size) {
+  const tablero = [];
+  for (let i = 0; i < size; i++) {
+    tablero.push(i);
+  }
+  return tablero;
+}
+
 // la funcion recibe la posicion del jugador despues de sumar el valor del dado
 //mas la posicion actual y verifica si cae en una ladder o una snake
-export function landdersAndSnakes(finalPosition) {
-  if (ladders.hasOwnProperty(finalPosition)) {
+function landdersAndSnakes(finalPosition) {
+  if (ladders[finalPosition]) {
     playerPosition = finalPosition + ladders[finalPosition];
     console.log(`Jugador usa escalera y sube a ${playerPosition}`);
-  } else if (snakes.hasOwnProperty(finalPosition)) {
+  } else if (snakes[finalPosition]) {
     playerPosition = finalPosition - snakes[finalPosition];
     console.log(`Jugador desciende al cuadro ${playerPosition}`);
   } else {
@@ -31,3 +39,7 @@ export function landdersAndSnakes(finalPosition) {
 
   return playerPosition;
 }
+
+
+
+export {delimitTable, landdersAndSnakes};
